@@ -22,43 +22,46 @@ int search(vector<int> inorder, int start, int end, int curr)
     }
     return -1;
 }
-node *buildtree(vector<int> preorder, vector<int> inorder, int start, int end)
+node *buildTree(vector<int> postorder, vector<int> inorder, int start, int end)
 {
-    static int idx = 0;
+    static int idx = postorder.size() - 1;
     if (start > end)
     {
         return NULL;
     }
 
-    int curr = preorder[idx];
-    idx++;
+    int curr = postorder[idx];
+    idx--;
     node *root = new node(curr);
+
     if (start == end)
     {
         return root;
     }
 
     int pos = search(inorder, start, end, curr);
-    root->left = buildtree(preorder, inorder, start, pos - 1);
-    root->right = buildtree(preorder, inorder, pos + 1, end);
+    root->right = buildTree(postorder, inorder, pos + 1, end);
+    root->left = buildTree(postorder, inorder, start, pos - 1);
 
     return root;
 }
-void preorderprint(node *root)
+void postorderprint(node *root)
 {
     if (root == NULL)
     {
         return;
     }
+    postorderprint(root->left);
+    postorderprint(root->right);
     cout << root->data << " ";
-    preorderprint(root->left);
-    preorderprint(root->right);
 }
+
 int main()
 {
-    vector<int> preorder = {1, 2, 4, 3, 5};
+    vector<int> postorder = {4, 2, 5, 3, 1};
     vector<int> inorder = {4, 2, 1, 5, 3};
-    node *root = buildtree(preorder, inorder, 0, inorder.size() - 1);
-    preorderprint(root);
+
+    node *root = buildTree(postorder, inorder, 0, inorder.size() - 1);
+    postorderprint(root);
     return 0;
 }
