@@ -1,3 +1,5 @@
+// Stacks using Arrays
+
 #include <iostream>
 using namespace std;
 #define n 100
@@ -32,7 +34,7 @@ public:
 
         top--;
     }
-    int Top()
+    int peek()
     {
         if (top == -1)
         {
@@ -52,12 +54,12 @@ int main()
     st.push(0);
     st.push(1);
     st.push(2);
-    cout << st.Top() << endl;
+    cout << st.peek() << endl;
     st.pop();
-    cout << st.Top() << endl;
+    cout << st.peek() << endl;
     st.pop();
     st.pop();
     st.pop();
-    cout << st.Top() << endl;
+    cout << st.peek() << endl;
     return 0;
 }
