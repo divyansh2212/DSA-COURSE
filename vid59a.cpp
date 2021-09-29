@@ -20,8 +20,8 @@ node *reverseIter(node *&head)
     while (currPtr != NULL)
     {
         nextPtr = currPtr->next;
+        
         currPtr->next = prevPtr;
-
         prevPtr = currPtr;
         currPtr = nextPtr;
     }
