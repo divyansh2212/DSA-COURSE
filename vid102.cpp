@@ -1,5 +1,3 @@
-// Time Complexity : O(N)
-
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -13,7 +11,7 @@ struct node
         data = val, left = NULL, right = NULL;
     }
 };
-void rightView(node *root)
+void leftView(node *root)
 {
     if (root == NULL)
     {
@@ -21,6 +19,7 @@ void rightView(node *root)
     }
     queue<node *> q;
     q.push(root);
+
     while (!q.empty())
     {
         int n = q.size();
@@ -28,8 +27,7 @@ void rightView(node *root)
         {
             node *front = q.front();
             q.pop();
-
-            if (i == n - 1)
+            if (i == 0)
             {
                 cout << front->data << " ";
             }
@@ -53,6 +51,6 @@ int main()
     root->left->right = new node(5);
     root->right->left = new node(6);
     root->right->right = new node(7);
-    rightView(root);
+    leftView(root);
     return 0;
 }
