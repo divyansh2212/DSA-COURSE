@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 int main()
-{ // Kadane Algo
+{ 
+    // Kadane Algo
     // Maxm Sub-Array sum using O(n)
     int n;
     cout << "Enter length of the array:" << endl;

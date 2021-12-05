@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 int main()
-{ // Sum of all Sub-Arrays
+{ 
+    // Sum of all Sub-Arrays
     int n;
     cout << "Enter no of elements in the array:" << endl;
     cin >> n;

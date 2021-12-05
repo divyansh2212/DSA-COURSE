@@ -2,7 +2,8 @@
 #include <climits>
 using namespace std;
 int main()
-{   // To print maxm elements in the array
+{   
+    // To print maxm elements in the array
     int n;
     cout << "Enter no of elements in the array:" << endl;
     cin >> n;

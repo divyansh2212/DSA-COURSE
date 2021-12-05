@@ -16,7 +16,8 @@ int kadane(int arr[], int n)
     return maxSum;
 }
 int main()
-{ // Maxm circular Sub Array sum
+{ 
+    // Maxm circular Sub Array sum
     int n;
     cout << "Enter length of the array:" << endl;
     cin >> n;
